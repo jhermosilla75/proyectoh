@@ -5,6 +5,6 @@ ahora = dt.datetime.now()
 print(f"Fecha y Hora actual:  {ahora.day}  del  {ahora.month}  de  {ahora.year}  y son las {ahora.hour}:{ahora.minute}")
 
 # con otro formato
-ahora1 = ahora.strftime("%d/%m/%y")
+ahora1 = ahora.strftime("%d/%m/%y  %H:%M")
 
 print(f"la fecha actual es:  {ahora1}")
