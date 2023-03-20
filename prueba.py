@@ -1,19 +1,21 @@
-import tkinter as tk
-from tkcalendar import DateEntry
+from datetime import datetime
+import csv
 
-root = tk.Tk()
-root.geometry("300x200")
-
-# Crear una variable de cadena para almacenar la fecha seleccionada
-selected_date = tk.StringVar()
-
-# Crear un widget de fecha utilizando el widget DateEntry de tkcalendar
-date_picker = DateEntry(root, width=12, background='darkblue', foreground='white', borderwidth=2, date_pattern='yyyy-mm-dd')
-
-# Enlazar la variable de cadena a la fecha seleccionada en el widget
-date_picker.config(date_pattern='yyyy-mm-dd', textvariable=selected_date)
-
-# Agregar el widget a la ventana
-date_picker.pack(padx=10, pady=10)
-
-root.mainloop()
+fechaaguardar = "1/3"
+hora= "17:00"
+with open("eventos.csv", "r", newline="") as archivo:
+            lector = csv.reader(archivo)
+            encabezado = next(lector)
+            cont = 1
+            for i in lector:
+                cont += 1
+                print(fechaaguardar)
+                print(i[0])
+                print(hora)
+                print(i[1])
+                print(cont)
+                if fechaaguardar == i[0] and hora == i[1]:
+                     print("PASA POR AQUI EXISTE EL EVENTO")
+                     break
+                else:
+                     print("NO EXISTE EL EVENTO")    

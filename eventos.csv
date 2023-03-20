@@ -1,4 +1,16 @@
-Titulo,fechayhora,duracion,descripcion,importancia
-medico,hoy,1 hora,ir a casa,True
-hola,va,queriendollegar,gente,al baile
-comprar,ma�ana,1,verdura,normal
+fecha,hora,titulo,duracion,descripcion,importancia
+1/3,17:00,javier,60,hombro,normal
+1/3,18:30,pruebayprueba,60,123,normal
+3/3,17:00,javier,60,tos,normal
+6/3,17:00,puta madre,60,me quiero matar,normal
+6/3,18:15,1,60,,normal
+7/3,17:00,javier,60,hombro,normal
+8/3,21:30,nuevo paciente,60,vuelce con estudios,normal
+14/3,17:00,probando delet,60,prueba y prueba,importante
+16/3,21:30,nuevo paciente,60,vuelce con estudios,normal
+19/3,17:00,javier,60,cadera,normal
+19/3,21:30,nuevo paciente,60,vuelce con estudios,normal
+21/3,18:45,vamos a ver,60,no se nada,normal
+22/3,17:00,javier,60,hombro,normal
+23/3,18:30,patrica,60,tiene hongos,importante
+30/3,18:45,vamos a ver,60,no se nada,normal

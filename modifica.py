@@ -3,11 +3,8 @@ from tkinter import ttk, messagebox
 import datetime as dt
 from datetime import datetime
 from tkcalendar import Calendar, DateEntry
-import os
-import csv
 
-
-class Evento(ttk.Frame):
+class Modifica(ttk.Frame):
     """En esta clase Evento voy a definir todos los atributos de un evento en este caso son turnos 
     y voy a heredar los atributos de una clase superior, para eso heredo de Frame y con super()"""
     def __init__(self, parent):
@@ -61,15 +58,15 @@ class Evento(ttk.Frame):
         combo1["state"] = "readonly"
         combo1.set("normal")
 
-        btn_guardar= ttk.Button(self, text="Guardar", state=tk.DISABLED, command= self.guarda)
-        btn_guardar.grid(row=10, column=1)
+        btn_modifica= ttk.Button(self, text="Guarda Modificacion", state=tk.DISABLED, command= self.guarda)
+        btn_modifica.grid(row=10, column=1)
         
 
         def chequear():
             if entradat.get() and entradaf.get() and entradah.get() and combo.get() and combo1.get():
-                btn_guardar.config(state=tk.NORMAL)
+                btn_modifica.config(state=tk.NORMAL)
             else:
-                btn_guardar.config(state=tk.DISABLED)
+                btn_modifica.config(state=tk.DISABLED)
         
     
     
@@ -78,62 +75,17 @@ class Evento(ttk.Frame):
     def guarda(self):
         fecha = self.fecha.get()
         fecha_obj = datetime.strptime(fecha, '%d/%m/%y')
-        dia = fecha_obj.day
+        print(fecha_obj)
         mes = fecha_obj.month
-        anio = fecha_obj.year
-        fechaaguardar =str(dia)+"/"+str(mes)
-        with open("eventos.csv", "r", newline="") as archivo:
-            lector = csv.reader(archivo)
-            #encabezado = next(lector)
-            for i in lector:
-                if fechaaguardar == i[0] and self.hora.get() == i[1]:
-                    messagebox.showinfo(self, message="Ya existe un turno en esta fecha y horario")
-                    return
-
-        if mes != 3 or anio != 2023:
-            messagebox.showwarning(message="Las fecha de los turnos deben ser de Marzo del 2023")
+        print(mes)
+        if mes != 3:
+            messagebox.showinfo(message="Ls fecha del turno debe ser de Marzo")
             return
         else:
-            evento=  fechaaguardar, self.hora.get(), self.titulo.get(), self.duracion.get(), self.descripcion.get(), self.importancia.get()
-            if os.path.exists("eventos.csv"):
-                modoapertura = "+a"
-            else:
-                modoapertura = "w"
-        with open("eventos.csv", modoapertura, newline="") as archivo:
-            escritor = csv.writer(archivo, delimiter=",")
-            escritor.writerow(evento)
-            
-        with open('eventos.csv', 'r') as archivo:
-            lector = csv.DictReader(archivo)
-            #encabezado = next(lector)
-            datos = [fila for fila in lector]
-            
-        def clave_de_ordenamiento(fila):
-            fecha = datetime.strptime(fila['fecha'], "%d/%m")
-            hora = datetime.strptime(fila['hora'], '%H:%M')
-            return datetime.combine(fecha.date(), hora.time()) 
-        
-        datos_ordenados = sorted(datos, key=clave_de_ordenamiento)
-
-
-        columnas = ["fecha","hora","titulo","duracion","descripcion","importancia"]
-        with open('eventos.csv', 'w', newline='') as archivo:
-            escritor = csv.DictWriter(archivo, fieldnames=columnas)
-
-            # escribir la fila de encabezado con los nombres de las columnas
-            escritor.writeheader()
-            # escribir cada fila en el archivo CSV
-            for fila in datos_ordenados:
-                escritor.writerow(fila)
-            messagebox.showinfo(message="El turno se guardó con exito")
-        
-        
-
-
-
-"""Todas las lineas de abajo las tengo que comentar cuando eventos sea llamado de calendario.py"""
-# root = tk.Tk()
-# root.geometry("500x200")
-# Evento(root).grid()
-# root.resizable(False, False) # evita que se pueda cambiar de tamaño la ventana
-# root.mainloop()
+            import csv
+            evento=  self.fecha.get(), self.hora.get(), self.titulo.get(), self.duracion.get(), self.descripcion.get(), self.importancia.get()
+            with open("eventos.csv", "+a", newline="") as archivo:
+                escritor = csv.writer(archivo, delimiter=",")
+                escritor.writerow(evento)
+                messagebox.showinfo(message="El turno fue cargado con exito")
+                self.parent.destroy()
