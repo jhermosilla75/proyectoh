@@ -1,16 +1,21 @@
-fecha,hora,titulo,duracion,descripcion,importancia
-1/3,17:00,javier,60,hombro,normal
-1/3,18:30,pruebayprueba,60,123,normal
-3/3,17:00,javier,60,tos,normal
-6/3,17:00,puta madre,60,me quiero matar,normal
-6/3,18:15,1,60,,normal
-7/3,17:00,javier,60,hombro,normal
-8/3,21:30,nuevo paciente,60,vuelce con estudios,normal
-14/3,17:00,probando delet,60,prueba y prueba,importante
-16/3,21:30,nuevo paciente,60,vuelce con estudios,normal
-19/3,17:00,javier,60,cadera,normal
-19/3,21:30,nuevo paciente,60,vuelce con estudios,normal
-21/3,18:45,vamos a ver,60,no se nada,normal
-22/3,17:00,javier,60,hombro,normal
-23/3,18:30,patrica,60,tiene hongos,importante
-30/3,18:45,vamos a ver,60,no se nada,normal
+fecha,hora,paciente,duracion,descripcion,importancia,etiqueta,recordatorio
+1/3/23,17:30,javier 1,30,consulta sobre dolor de pierna,importante,traumatologo,
+1/3/23,17:45,Pepita la pistolera,15,le duele la mano,importante,,
+1/3/23,21:30,Javier Hermosilla,15,consulta,normal,,True
+2/3/23,17:30,Pedro el escamoso,30,consulta,normal,,
+3/3/23,18:30,Gustavo Garcia,30,consulta sobre dolor de mano,normal,traumatologo,True
+7/3/23,18:00,Fatima,30,curacion de heridas,importante,pediatra,
+7/3/23,18:15,Pablo Peralta,15,consulta sobre estudios,normal,,True
+8/3/23,17:00,Fernando Salvatierra,60,reitera estudios radriografia que salieron mal,normal,,True
+13/3/23,21:00,Aida Baldovino,60,"dolor de ojos, problemas con cataratas",importante,oculista,
+14/3/23,18:30,pedrito,60,,normal,,True
+15/3/23,17:00,Eduarda Perez,60,pciente del interior de salta con problemas motrices,importante,,
+20/3/23,18:15,Juana la loca,30,Dice que lo ve a Boca jugando bien!!!,importante,psicologo,False
+21/3/23,18:30,Mercedes Guerra,45,perna derecha con moretones,importante,,True
+27/3/23,17:00,prueba,60,,normal,,False
+27/3/23,18:15,Carmen Mercedes,30,dolor de panza todas las noches,normal,clinico,True
+28/3/23,17:00,Melina Saavedra,60,manchas en la pliel,normal,dermatologa,True
+28/3/23,17:30,Rosario Tijeras,30,consulta ojos rojos,importante,oculista,True
+28/3/23,17:45,prueba,60,,normal,,True
+28/3/23,18:15,Santiago Rios,15,consulta dolor de muelas,normal,dentista,True
+28/3/23,18:30,German Barrios,45,dolor de rodilla	derecha,normal,traumatologo,True
